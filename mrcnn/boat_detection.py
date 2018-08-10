@@ -79,7 +79,7 @@ im_names = os.listdir(TEST_PATH)
 data = list(group(im_names, batch_size))
 # leftover = im_names[len(im_names)-6:]
 
-START = 0
+START = 1021
 END = len(data)
 
 all_results = []
