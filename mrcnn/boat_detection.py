@@ -94,5 +94,5 @@ for idx, d in enumerate(data[START:END]):
     all_results += results
     with open('output.txt', 'w') as f:
     	f.write('Processing batch {}/{}...'.format(START+idx, len(data)))
-    with open('results/results_{}_{}.pkl'.format(START, START+idx), 'wb') as f:
+    with open('results/results_{}_{}.pkl'.format(START, END), 'wb') as f:
         pickle.dump(all_results, f)
