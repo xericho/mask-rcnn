@@ -22,7 +22,7 @@ class Config(object):
     # Name the configurations. For example, 'COCO', 'Experiment 3', ...etc.
     # Useful if your code needs to do things differently depending on which
     # experiment is running.
-    NAME = None  # Override in sub-classes
+    NAME = 'coco'  # Override in sub-classes
 
     # NUMBER OF GPUs to use. For CPU training, use 1
     GPU_COUNT = 1
