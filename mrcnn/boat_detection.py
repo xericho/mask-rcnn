@@ -18,9 +18,6 @@ import model as modellib
 import visualize
 import config as Configure
 
-# Import COCO config
-sys.path.append(os.path.join(ROOT_DIR, "samples/coco/"))  # To find local version
-# import coco
 
 def group(lst1, n):
     for i in range(0, len(lst1), n):
@@ -32,13 +29,13 @@ def group(lst1, n):
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
 # Local path to trained weights file
-COCO_MODEL_PATH = os.path.join(os.path.abspath("../../"), "mask_rcnn_coco.h5")
+COCO_MODEL_PATH = "/kaggle/input/model/mask_rcnn_coco.h5"
 # Download COCO trained weights from Releases if needed
 # if not os.path.exists(COCO_MODEL_PATH):
 #     utils.download_trained_weights(COCO_MODEL_PATH)
 
 # Directory of images to run detection on
-IMAGE_DIR = os.path.join(ROOT_DIR, "images")
+IMAGE_DIR = '/kaggle/input/airbus-ship-detection/test/'
 
 class InferenceConfig(Configure.Config):
     # Set batch size to 1 since we'll be running inference on
@@ -47,7 +44,7 @@ class InferenceConfig(Configure.Config):
     NUM_CLASSES = 81
 
 config = InferenceConfig()
-batch_size = 5
+batch_size = 7
 config.IMAGES_PER_GPU = batch_size
 config.BATCH_SIZE = config.IMAGES_PER_GPU * config.GPU_COUNT
 config.display()
