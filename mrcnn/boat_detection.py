@@ -44,7 +44,7 @@ class InferenceConfig(Configure.Config):
     NUM_CLASSES = 81
 
 config = InferenceConfig()
-batch_size = 10
+batch_size = 50
 config.IMAGES_PER_GPU = batch_size
 config.BATCH_SIZE = config.IMAGES_PER_GPU * config.GPU_COUNT
 config.display()
