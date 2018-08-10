@@ -35,7 +35,7 @@ COCO_MODEL_PATH = "/kaggle/input/model/mask_rcnn_coco.h5"
 #     utils.download_trained_weights(COCO_MODEL_PATH)
 
 # Directory of images to run detection on
-IMAGE_DIR = '/kaggle/input/airbus-ship-detection/test/'
+# IMAGE_DIR = '/kaggle/input/airbus-ship-detection/test/'
 
 class InferenceConfig(Configure.Config):
     # Set batch size to 1 since we'll be running inference on
@@ -44,7 +44,7 @@ class InferenceConfig(Configure.Config):
     NUM_CLASSES = 81
 
 config = InferenceConfig()
-batch_size = 7
+batch_size = 10
 config.IMAGES_PER_GPU = batch_size
 config.BATCH_SIZE = config.IMAGES_PER_GPU * config.GPU_COUNT
 config.display()
@@ -74,10 +74,10 @@ class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
                'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors',
                'teddy bear', 'hair drier', 'toothbrush']
 
-TEST_PATH = '/home/parallels/Downloads/test'
-im_names = os.listdir('/home/parallels/Downloads/test')
+TEST_PATH = '/kaggle/input/airbus-ship-detection/test/'
+im_names = os.listdir(TEST_PATH)
 data = list(group(im_names, batch_size))
-leftover = im_names[len(im_names)-6:]
+# leftover = im_names[len(im_names)-6:]
 
 START = 0
 END = len(data)
