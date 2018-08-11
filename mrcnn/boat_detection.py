@@ -6,6 +6,8 @@ import numpy as np
 import skimage.io
 import pickle
 import matplotlib.pyplot as plt
+import logging
+logging.getLogger().setLevel(level=logging.INFO)
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../")
@@ -84,7 +86,7 @@ END = len(data)
 
 all_results = []
 for idx, d in enumerate(data[START:END]):
-    print('Processing batch {}...'.format(START+idx))
+    logging.info('Processing batch {}...'.format(START+idx))
     im_batch = []
     for im in d:
         im_batch.append(skimage.io.imread(os.path.join(TEST_PATH, im)))
